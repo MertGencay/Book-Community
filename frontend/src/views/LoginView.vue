@@ -104,7 +104,7 @@ const submitForm = async () => {
 
     const toast = useToast();
 
-    toast.success('You will be redirected to the dashboard page', {
+    toast.success('Profil sayfasına yönlendirileceksiniz.', {
       position: 'top-right',
       timeout: 3500,
       closeButton: 'button',

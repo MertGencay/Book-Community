@@ -37,7 +37,7 @@ export const useRatingStore = defineStore('ratingStore', {
         if (bookIndex !== -1) {
           bookStore.books[bookIndex].ratings = response.data.ratings;
         } else {
-          console.warn(`Book with id: ${bookId} not found`);
+          console.warn(`Kitap id: ${bookId} bulunamadı.`);
         }
       } catch (error) {
         console.log(error);

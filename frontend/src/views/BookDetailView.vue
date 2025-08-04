@@ -157,7 +157,7 @@
                       "
                       @click="upvote(comment._id)"
                     >
-                      <p class="small mb-0">Upvote?</p>
+                      <p class="small mb-0">Beğenmek?</p>
                       <font-awesome-icon :icon="['far', 'thumbs-up']" />
                     </div>
 
@@ -170,7 +170,7 @@
                       "
                       @click="downvote(comment._id)"
                     >
-                      <p class="small mb-0">Upvoted</p>
+                      <p class="small mb-0">Beğeni</p>
                       <font-awesome-icon
                         :icon="['fas', 'thumbs-up']"
                         style="color: var(--secondary-color)"

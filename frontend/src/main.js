@@ -49,7 +49,7 @@ axios.interceptors.response.use(
       error.response.data.error === 'Token has expired!'
     ) {
       // Display Toast Message
-      toast.error('Your token has expired, forwarding login page', {
+      toast.error('Jetonunuzun süresi doldu, giriş sayfası yönlendiriliyor.', {
         position: 'top-right',
         timeout: 3000,
         closeButton: 'button',

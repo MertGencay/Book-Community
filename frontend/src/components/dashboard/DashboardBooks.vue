@@ -65,7 +65,7 @@
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="addModalLabel">Kitap Ekle</h5>
+          <h5 class="modal-title" id="addModalLabel">Kitap Güncelle</h5>
           <button
             type="button"
             @click="modal.hide()"
@@ -250,7 +250,7 @@ export default {
 
         this.modal.hide();
 
-        this.showToast(`The book edited succesfully`, {
+        this.showToast(`Kitap düzenlemesi başarılı.`, {
           type: 'success',
           timeout: 3000,
         });
@@ -264,7 +264,7 @@ export default {
 
         await this.fetchBooksByUploader();
 
-        this.showToast(`${bookTitle} deleted succesfully`, {
+        this.showToast(`${bookTitle} başarıyla silindi.`, {
           type: 'warning',
           timeout: 3000,
         });
@@ -287,7 +287,7 @@ export default {
 
         await this.fetchBooksByUploader();
 
-        this.showToast('New book added successfully', {
+        this.showToast('Yeni kitap başarıyla eklendi.', {
           type: 'success',
           timeout: 1000,
         });
@@ -310,7 +310,7 @@ export default {
   min-width: 120px;
 }
 
-.list-move, /* apply transition to moving elements */
+.list-move, 
 .list-enter-active,
 .list-leave-active {
   transition: all 2s ease;
@@ -322,8 +322,6 @@ export default {
   transform: translateX(300px);
 }
 
-/* ensure leaving items are taken out of layout flow so that moving
-   animations can be calculated correctly. */
 .list-leave-active {
   position: absolute;
 }

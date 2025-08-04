@@ -155,7 +155,7 @@ const submitForm = async () => {
 
     const toast = useToast();
 
-    toast.success('You will be redirected to the login page', {
+    toast.success('Giriş sayfasına yönlendirileceksiniz.', {
       position: 'top-right',
       timeout: 3500,
       closeButton: 'button',

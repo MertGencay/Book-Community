@@ -16,7 +16,7 @@ export const useCommentStore = defineStore('commentStore', {
 
         this.comments = response.data.comments;
       } catch (error) {
-        console.error('Error at fetching comments', error);
+        console.error('Yorumlar alınırken hata oluştu', error);
       }
     },
     async addNewComment(newComment) {

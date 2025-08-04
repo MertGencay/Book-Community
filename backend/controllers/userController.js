@@ -18,10 +18,10 @@ const updateUser = async (req, res) => {
 
     await user.save();
 
-    res.status(200).json({ message: 'The user details updated succesfully' });
+    res.status(200).json({ message: 'Kullanıcı bilgileri başarıyla güncellendi' });
   } catch (error) {
-    console.error('Error at updateUser', error);
-    return res.status(500).json({ error: 'Internal Server error' });
+    console.error('updateUser da hata!', error);
+    return res.status(500).json({ error: 'Sunucu hatası!' });
   }
 };
 

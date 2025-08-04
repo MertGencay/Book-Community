@@ -11,7 +11,7 @@ export const useUserStore = defineStore('userStore', {
         );
         return response.data;
       } catch (error) {
-        console.error('Error at updating user details', error);
+        console.error('Kullanıcı bilgilerini güncellerken hata oluştu', error);
         throw error.response.data;
       }
     },

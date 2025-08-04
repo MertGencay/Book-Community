@@ -96,7 +96,7 @@ export default {
 
         const toast = useToast();
 
-        toast.success('Please login with new details', {
+        toast.success('Lütfen yeni bilgilerle giriş yapın.', {
           position: 'top-right',
           timeout: 3500,
           closeButton: 'button',

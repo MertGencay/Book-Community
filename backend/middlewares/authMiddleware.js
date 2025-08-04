@@ -7,13 +7,13 @@ const authenticateUser = async (req, res, next) => {
   if (!authHeader) {
     return res
       .status(401)
-      .json({ message: 'Authorization header is missing!' });
+      .json({ message: 'Yetkilendirme başlığı eksik!' });
   }
 
   const tokenParts = authHeader.split(' ');
 
   if (tokenParts.length !== 2 || tokenParts[0] !== 'Bearer') {
-    return res.status(401).json({ message: 'Invalid auth header format!' });
+    return res.status(401).json({ message: 'Geçersiz yetkilendirme başlık biçimi!' });
   }
 
   const token = tokenParts[1];
@@ -26,9 +26,9 @@ const authenticateUser = async (req, res, next) => {
     next();
   } catch (error) {
     if (error.name === 'TokenExpiredError') {
-      return res.status(401).json({ message: 'Token has expired!' });
+      return res.status(401).json({ message: 'Tokenın süresi doldu!' });
     } else {
-      return res.status(500).json({ message: 'Internal Server Error!' });
+      return res.status(500).json({ message: 'Sunucu hatası!' });
     }
   }
 };

@@ -10,8 +10,8 @@ const getAllBooks = async (req, res) => {
     const books = await Book.find();
     res.status(200).json(books);
   } catch (error) {
-    console.error('Error at getAllBooks', error);
-    return res.status(500).json({ error: 'Internal Server error' });
+    console.error('getAllBooks da hata!', error);
+    return res.status(500).json({ error: 'Sunucu Hatası!' });
   }
 };
 
@@ -22,8 +22,8 @@ const getBooksByUploader = async (req, res) => {
     const books = await Book.find({ uploader: uploaderId });
     res.status(200).json(books);
   } catch (error) {
-    console.error('Error at getBooksByUploader', error);
-    return res.status(500).json({ error: 'Internal Server error' });
+    console.error('getBooksByUploader da hata!', error);
+    return res.status(500).json({ error: 'Sunucu Hatası!' });
   }
 };
 
@@ -38,8 +38,8 @@ const getABook = async (req, res) => {
 
     res.status(200).json(book);
   } catch (error) {
-    console.error('Error at getABook', error);
-    return res.status(500).json({ error: 'Internal Server error' });
+    console.error('getABook da hata!', error);
+    return res.status(500).json({ error: 'Sunucu Hatası!' });
   }
 };
 
@@ -54,7 +54,7 @@ const createABook = async (req, res) => {
     if (existingBook) {
       return res
         .status(400)
-        .json({ error: 'A book with same title and author already exist!' });
+        .json({ error: 'Aynı isimli ve yazarlı bir kitap zaten mevcut!' });
     }
 
     const newBook = await Book.create({
@@ -67,14 +67,14 @@ const createABook = async (req, res) => {
 
     return res
       .status(201)
-      .json({ message: 'Book created succesfully', book: newBook });
+      .json({ message: 'Kitap başarıyla oluşturuldu', book: newBook });
   } catch (error) {
     // Handle mongoose validation error
     if (error.name === 'ValidationError') {
       if (checkValidationErrors(error, res)) return;
     } else {
-      console.error('Error at createBook', error);
-      return res.status(500).json({ error: 'Internal Server error' });
+      console.error('createBook da hata!', error);
+      return res.status(500).json({ error: 'Sunucu hatası!' });
     }
   }
 };
@@ -96,10 +96,10 @@ const updateABook = async (req, res) => {
 
     await book.save();
 
-    res.status(200).json({ message: 'The book updated succesfully', book });
+    res.status(200).json({ message: 'Kitap başarıyla güncellendi', book });
   } catch (error) {
-    console.error('Error at updateABook', error);
-    return res.status(500).json({ error: 'Internal Server error' });
+    console.error('updateABook da hata!', error);
+    return res.status(500).json({ error: 'Sunucu hatası!' });
   }
 };
 
@@ -113,10 +113,10 @@ const deleteABook = async (req, res) => {
     if (!book) return;
 
     await book.deleteOne();
-    res.status(200).json({ message: 'Book deleted successfully' });
+    res.status(200).json({ message: 'Kitap başarıyla silindi!' });
   } catch (error) {
-    console.error('Error at deleteABook', error);
-    return res.status(500).json({ error: 'Internal Server error' });
+    console.error('deleteABook da hata!', error);
+    return res.status(500).json({ error: 'Sunucu hatası!' });
   }
 };
 

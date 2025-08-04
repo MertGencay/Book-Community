@@ -12,10 +12,10 @@ const createARate = async (req, res) => {
 
     return res
       .status(201)
-      .json({ message: 'Rating created succesfully', rating: newRate });
+      .json({ message: 'Puanlandırma başarıyla oluşturuldu', rating: newRate });
   } catch (error) {
-    console.error('Error at createARate', error);
-    return res.status(500).json({ error: 'Internal Server error' });
+    console.error('createARate da hata!', error);
+    return res.status(500).json({ error: 'Sunucu hatası!' });
   }
 };
 
@@ -26,10 +26,10 @@ const getRatingsForBook = async (req, res) => {
     const ratings = await Rating.find({ book: id }).populate('ratedBy');
     return res
       .status(201)
-      .json({ message: 'Comments for book fetched', ratings });
+      .json({ message: 'Kitap için yorumlar getirildi', ratings });
   } catch (error) {
-    console.error('Error at getRatingsForBook', error);
-    return res.status(500).json({ error: 'Internal Server error' });
+    console.error('getRatingsForBook da hata!', error);
+    return res.status(500).json({ error: 'Sunucu hatası!' });
   }
 };
 

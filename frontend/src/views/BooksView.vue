@@ -42,16 +42,6 @@ const updatePage = (page) => {
 };
 </script>
 
-<!-- <script>
-
-
-  methods: {
-    updatePage(page) {
-      this.currentPage = page;
-    },
-  },
-};
-</script> -->
 
 <style scoped>
 .auth-box {

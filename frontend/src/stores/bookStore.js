@@ -43,7 +43,7 @@ export const useBookStore = defineStore('bookStore', {
 
         await this.fetchRatingsForBooks();
       } catch (error) {
-        console.error('Error at fetching books', error);
+        console.error('Kitapları getirirken hata oluştu', error);
       } finally {
         this.isLoading = false;
       }
@@ -59,7 +59,7 @@ export const useBookStore = defineStore('bookStore', {
 
             book.ratings = ratingStore.ratingsForBook;
           } catch (error) {
-            console.error('Error at fetchRatingsForBook', error);
+            console.error('fetchRatingsForBook da hata oluştu', error);
           }
         })
       );
@@ -73,7 +73,7 @@ export const useBookStore = defineStore('bookStore', {
 
         this.userUploadedBooks = response.data;
       } catch (error) {
-        console.error('Error at user uploaded books', error);
+        console.error('Kullanıcı tarafından yüklenen kitaplarda hata oluştu', error);
       }
     },
 

@@ -12,10 +12,10 @@ const createAComment = async (req, res) => {
 
     return res
       .status(201)
-      .json({ message: 'Comment created succesfully', comment: newComment });
+      .json({ message: 'Yorum başarıyla oluşturuldu.', comment: newComment });
   } catch (error) {
-    console.error('Error at createAComment', error);
-    return res.status(500).json({ error: 'Internal Server error' });
+    console.error('createAComment da hata!', error);
+    return res.status(500).json({ error: 'Sunucu hatası!' });
   }
 };
 
@@ -25,10 +25,10 @@ const getAllComments = async (req, res) => {
       path: 'postedBy',
       select: 'username',
     });
-    res.status(200).json({ message: 'Comments fetched', comments });
+    res.status(200).json({ message: 'Yorumlar alındı', comments });
   } catch (error) {
-    console.error('Error at getAllComments', error);
-    return res.status(500).json({ error: 'Internal Server error' });
+    console.error('getAllComments da hata!', error);
+    return res.status(500).json({ error: 'Sunucu hatası!' });
   }
 };
 
@@ -39,10 +39,10 @@ const getCommentsForBook = async (req, res) => {
     const comments = await Comment.find({ book: id }).populate('postedBy');
     return res
       .status(201)
-      .json({ message: 'Comments for book fetched', comments });
+      .json({ message: 'Kitap için yorumlar getirildi', comments });
   } catch (error) {
-    console.error('Error at getCommentsForBook', error);
-    return res.status(500).json({ error: 'Internal Server error' });
+    console.error('getCommentsForBook da hata!', error);
+    return res.status(500).json({ error: 'Sunucu hatası!' });
   }
 };
 const getCommentsByUser = async (req, res) => {
@@ -52,10 +52,10 @@ const getCommentsByUser = async (req, res) => {
     const comments = await Comment.find({ postedBy: id }).populate('book');
     return res
       .status(201)
-      .json({ message: 'Comments for book fetched', comments });
+      .json({ message: 'Kitap için yorumlar getirildi', comments });
   } catch (error) {
-    console.error('Error at getCommentsByUser', error);
-    return res.status(500).json({ error: 'Internal Server error' });
+    console.error('getCommentsByUser da hata!', error);
+    return res.status(500).json({ error: 'Sunucu hatası!' });
   }
 };
 
@@ -70,10 +70,10 @@ const upvoteComment = async (req, res) => {
 
     await comment.save();
 
-    return res.status(200).json({ message: 'Upvoted successfully', comment });
+    return res.status(200).json({ message: 'Başarıyla olumlu oy verildi', comment });
   } catch (error) {
-    console.error('Error at upvoteComment', error);
-    return res.status(500).json({ error: 'Internal Server error' });
+    console.error('upvoteComment da hata!', error);
+    return res.status(500).json({ error: 'Sunucu hatası!' });
   }
 };
 const downvoteComment = async (req, res) => {
@@ -89,10 +89,10 @@ const downvoteComment = async (req, res) => {
 
     await comment.save();
 
-    return res.status(200).json({ message: 'Upvoted successfully', comment });
+    return res.status(200).json({ message: 'Başarıyla olumlu oy verildi', comment });
   } catch (error) {
-    console.error('Error at upvoteComment', error);
-    return res.status(500).json({ error: 'Internal Server error' });
+    console.error('upvoteComment da hata!', error);
+    return res.status(500).json({ error: 'Sunucu hatası!' });
   }
 };
 
